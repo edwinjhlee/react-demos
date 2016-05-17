@@ -13,7 +13,8 @@
         <h2>React is awesome</h2>,
       ];
       ReactDOM.render(
-        <div>{arr}</div>,
+        //<div>{arr}</div>,
+        <div>{ [...arr, <h3>This is H3</h3> ] }</div>,
         document.getElementById('example')
       );
     </script>

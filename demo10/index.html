@@ -9,21 +9,15 @@
     <div id="example"></div>
     <script type="text/babel">
       var Hello = React.createClass({
-        getInitialState: function () {
-          return {
-            opacity: 1.0
-          };
-        },
+        // Note: we encounter a ambiguity here. 
+        // () => { opacity: 1.0 } doesn't work
+        getInitialState: () => { return { opacity: 1.0 } },
 
         componentDidMount: function () {
           this.timer = setInterval(function () {
             var opacity = this.state.opacity;
-            opacity -= .05;
-            if (opacity < 0.1) {
-              opacity = 1.0;
-            }
             this.setState({
-              opacity: opacity
+              opacity: opacity < 0.15 ? 1.0 : opacity - .05
             });
           }.bind(this), 100);
         },

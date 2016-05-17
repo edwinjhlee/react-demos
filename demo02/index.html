@@ -4,21 +4,21 @@
     <script src="../build/react.js"></script>
     <script src="../build/react-dom.js"></script>
     <script src="../build/browser.min.js"></script>
+    <script src="../build/jquery.min.js"></script>
   </head>
   <body>
     <div id="example"></div>
+    <script src="../build/jquery.min.js"></script>
     <script type="text/babel">
       var names = ['Alice', 'Emily', 'Kate'];
-
       ReactDOM.render(
         <div>
         {
-          names.map(function (name) {
-            return <div>Hello, {name}!</div>
-          })
+          names.map((name) => <div>Hello, {name}!</div>)
         }
         </div>,
-        document.getElementById('example')
+        //document.getElementById('example')
+        $('#example')[0]
       );
     </script>
   </body>
